@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap">
+    <style>
+        body {
+            font-family: 'Comfortaa', sans-serif;
+            background-color: #EFDAC7;
+            font-size: 20px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .dark {
+            background-color: #1A2860;
+            color: #EFDAC7;
+        }
+
+        .result-container {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .result-container h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .result-container p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .result-image {
+            margin-bottom: 20px;
+        }
+
+        .result-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .result-description {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body class="dark">
+    <div class="quiz-container dark-container">
+        <div class="result-container">
+            <!-- Result content will be displayed here dynamically using JavaScript -->
+            <h2 id="result-title">Result Title</h2>
+            <p id="result-text">Result Text</p>
+            <div class="result-image">
+                <img id="result-image" src="images/result-image.jpg" alt="Result Image">
+            </div>
+            <p class="result-description" id="result-description">Result Description</p>
+        </div>
+    </div>
+    <script src="finalscript.js"></script>
+    <script>
+        // Retrieve the result option from local storage
+        const resultOption = localStorage.getItem('resultOption');
+
+        // Get the result details based on the stored option
+        const result = resultOptions[resultOption];
+
+        // Display the result on the page
+        const resultTitle = document.getElementById('result-title');
+        resultTitle.innerText = result.title;
+
+        const resultText = document.getElementById('result-text');
+        resultText.innerText = result.text;
+
+        const resultImage = document.getElementById('result-image');
+        resultImage.src = `images/${result.image}`;
+
+        const resultDescription = document.getElementById('result-description');
+        resultDescription.innerText = result.description;
+    </script>
+</body>
+</html>
